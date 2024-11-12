@@ -1,0 +1,24 @@
+{
+  "name": "projeto-jogo-oo",
+  "version": "1.0.0",
+  "description": "tarefa jogo para cadeira de orientação a objetos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicolesi98/projeto-jogo-oo.git"
+  },
+  "author": "Nicole Dos Santos",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Nicolesi98/projeto-jogo-oo/issues"
+  },
+  "homepage": "https://github.com/Nicolesi98/projeto-jogo-oo#readme",
+  "dependencies": {
+    "bycontract": "^2.0.11",
+    "prompt-sync": "^4.2.0"
+  }
+}

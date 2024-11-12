@@ -1,0 +1,78 @@
+classDiagram
+    class Engine
+    class Objeto
+    class Ferramenta
+    class Sala
+
+    Engine --> Sala
+    Engine --> Mochila
+    Mochila --> Ferramenta
+    Sala --> Ferramenta
+    Sala --> Objeto
+
+    Ferramenta --|> Pergaminho
+    Ferramenta --|> Chave
+    Ferramenta --|> Flor
+
+    Objeto --|> PrateleiraLivros
+    Objeto --|> GloboTerrestre
+    Objeto --|> Armario
+    Objeto --|> Fogao
+    Objeto --|> Cama
+    Objeto --|> Comoda
+    Objeto --|> Lupa
+    Objeto --|> Sofa
+    Objeto --|> Lareira
+    Objeto --|> Quarto
+    Objeto --|> Mesa
+    Objeto --|> Lustre
+    Objeto --|> VasoDeFlor
+
+    class Engine{
+        -Mochila mochila
+        -Sala salaCorrente
+        +Mochila get mochila()
+        +Sala get salaCorrente()
+        +void set salaCorrente(Sala salaCorrente)
+        +void criaCenario()
+        +void joga()
+    }
+
+    class Mochila{
+        -Array ferramentas
+        +Array get ferramentas()
+        +void adicionar(Ferramenta ferramenta)
+    }
+
+    class Sala {
+        -String nome
+        -Array ferramentas
+        -Array objetos
+        -Array salasDisponiveis
+        -Engine engine
+        +String get nome()
+        +Array get ferramentas()
+        +Array get objetos()
+        +Array get salasDisponiveis()
+        +void pega(Ferramenta ferramenta)
+        +void usa(Objeto objeto)
+        +void sai()
+    }
+
+    class Objeto {
+        -String nome
+        -boolean acaoRealizada
+        -String ferramenta
+        +String usar(Mochila mochila)
+        +String get nome()
+        +boolean get acaoRealizada()
+        +String get ferramenta()
+    }
+
+    class Ferramenta {
+        -String nome
+        -boolean pegou
+        +String get nome()
+        +boolean get pegou()
+        +void pegar()
+    }
