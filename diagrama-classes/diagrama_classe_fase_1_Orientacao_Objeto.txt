@@ -39,21 +39,20 @@ classDiagram
     }
 
     class Mochila{
-        -Array ferramentas
-        +Array get ferramentas()
+        -Map ferramentas
+        +Map get ferramentas()
         +void adicionar(Ferramenta ferramenta)
     }
 
     class Sala {
         -String nome
-        -Array ferramentas
-        -Array objetos
-        -Array salasDisponiveis
-        -Engine engine
+        -Map ferramentas
+        -Map objetos
+        -Map salasDisponiveis
         +String get nome()
-        +Array get ferramentas()
-        +Array get objetos()
-        +Array get salasDisponiveis()
+        +Map get ferramentas()
+        +Map get objetos()
+        +Map get salasDisponiveis()
         +void pega(Ferramenta ferramenta)
         +void usa(Objeto objeto)
         +void sai()
@@ -63,7 +62,7 @@ classDiagram
         -String nome
         -boolean acaoRealizada
         -String ferramenta
-        +String usar(Mochila mochila)
+        +String usar(Ferramenta ferramentaSelecionada)
         +String get nome()
         +boolean get acaoRealizada()
         +String get ferramenta()
