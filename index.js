@@ -63,19 +63,11 @@ while(acao != 0){
             console.log("As salas disponíveis para ir são: ");
             let salasDisponiveis = engine.salaCorrente.salasDisponiveis;
             for(const sala of salasDisponiveis){
-                console.log(sala.key);
+                console.log(sala[0]);
             }
             let salaNomeEscolhida = prompt("Informe o nome da sala: ");
-
-            let salaEscolhida;
-            for(const sala of salasDisponiveis){
-                if(salaNomeEscolhida === sala.key){
-                    salaEscolhida = sala.item;
-                    break;
-                }
-            }
             
-            engine.salaCorrente = salaEscolhida;
+            engine.salaCorrente = salasDisponiveis.get(salaNomeEscolhida);
             console.log("####################################");
             break;
         default:

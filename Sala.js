@@ -11,26 +11,25 @@ export class Sala {
     constructor(nome, ferramentas, objetos){
         validate(nome,"String");
         this.#nome = nome;
-        this.#ferramentas = this.#criarArrayDeMaps(ferramentas);
-        this.#objetos = this.#criarArrayDeMaps(objetos);
-        this.#salasDisponiveis = [];
+        this.#ferramentas = this.#criarMap(ferramentas);
+        this.#objetos = this.#criarMap(objetos);
+        this.#salasDisponiveis = new Map();
     }
 
-    #criarArrayDeMaps(lista) {
+    #criarMap(lista) {
 
         if(!lista.length){
-            return lista;
+            return new Map();
         }
 
-        const arrayDeMaps = [];
+        const mapa = new Map();
     
         for (const item of lista) {
             const key = item.nome;
-            const novoMap = {key, item};
-            arrayDeMaps.push(novoMap);
+            mapa.set(key, item);
         }
     
-        return arrayDeMaps;
+        return mapa;
     }
 
     get nome(){
@@ -50,6 +49,6 @@ export class Sala {
     }
 
     set salasDisponiveis(salasDisponiveis){
-        this.#salasDisponiveis = this.#criarArrayDeMaps(salasDisponiveis);
+        this.#salasDisponiveis = this.#criarMap(salasDisponiveis);
     }
 }
