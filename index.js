@@ -59,6 +59,7 @@ while(acao != 0){
             console.log("Fim de Jogo!!!");
             break;
         case 1:
+            console.log("####################################");
             console.log("As salas disponíveis para ir são: ");
             let salasDisponiveis = engine.salaCorrente.salasDisponiveis;
             for(const sala of salasDisponiveis){
@@ -70,10 +71,13 @@ while(acao != 0){
             for(const sala of salasDisponiveis){
                 if(salaNomeEscolhida === sala.key){
                     salaEscolhida = sala.item;
+                    break;
                 }
             }
             
             engine.salaCorrente = salaEscolhida;
+            console.log("####################################");
+            break;
         default:
             console.log("Escolha inválida, refaça sua escolha!");
             break;
