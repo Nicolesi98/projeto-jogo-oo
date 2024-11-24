@@ -2,23 +2,19 @@ import {validate} from "bycontract";
 
 export class Ferramenta {
     #nome;
-    #pegou;
+    #mensagemSucesso;
 
-    constructor(nome){
-        validate(nome,"String");
+    constructor(nome, mensagemSucesso){
+        validate(arguments,["String", "String"]);
         this.#nome = nome;
-        this.#pegou = false;
+        this.#mensagemSucesso = mensagemSucesso;
     }
 
     get nome(){
         return this.#nome;
     }
 
-    get pegou(){
-        return this.#pegou;
-    }
-
-    pegar(){
-        this.#pegou = true;
+    get mensagemSucesso(){
+        return this.#mensagemSucesso;
     }
 }

@@ -1,28 +1,50 @@
+import promptsync from 'prompt-sync';
+const prompt = promptsync({sigint: true});
 import {validate} from "bycontract";
+import { Ferramenta } from "./Ferramenta.js";
+import { Mochila } from "./Mochila.js";
 
 export class Objeto {
     #nome;
-    #acaoRealizada;
+    #desabilitaUso;
+    #textoAcaoRealizada;
+    #ferramentaDaAcao;
+    #ferramentaQuePossui;
+    
 
-    //nome String da ferramenta que pode ser utilizada com esse objeto
-    #ferramenta;
-
-    constructor(nome, ferramenta){
-        validate(arguments,["String", "String"]);
+    constructor(nome, ferramentaQuePossui, ferramentaDaAcao, textoAcaoRealizada){
         this.#nome = nome;
-        this.#acaoRealizada = false;
-        this.#ferramenta = ferramenta;
+        this.#desabilitaUso = false;
+        this.#ferramentaQuePossui = ferramentaQuePossui;
+        this.#ferramentaDaAcao = ferramentaDaAcao;
+        this.#textoAcaoRealizada = textoAcaoRealizada;
     }
 
     get nome(){
         return this.#nome;
     }
 
-    get acaoRealizada(){
-        return this.#acaoRealizada;
+    get desabilitaUso(){
+        return this.#desabilitaUso;
     }
 
-    get ferramenta(){
-        return this.#ferramenta;
+    get ferramentaDaAcao(){
+        return this.#ferramentaDaAcao;
+    }
+
+    usa(mochila){
+
+        if(this.#ferramentaQuePossui !== undefined){
+            let escolhaPegar = prompt(this.#textoAcaoRealizada);
+
+            if(escolhaPegar === "S"){
+                mochila.adicionar(this.#ferramentaQuePossui);
+                this.#desabilitaUso = true;
+            }
+
+        }else{
+            console.log(this.#textoAcaoRealizada);
+            this.#desabilitaUso = true;
+        }
     }
 }
