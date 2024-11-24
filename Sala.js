@@ -44,9 +44,6 @@ export class Sala {
         return this.#salasDisponiveis;
     }
 
-    set salasDisponiveis(salasDisponiveis){
-        this.#salasDisponiveis = this.#criarMap(salasDisponiveis);
-    }
 
     sai(){
         console.log("####################################");
